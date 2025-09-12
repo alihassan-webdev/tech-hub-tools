@@ -23,7 +23,7 @@ export const Navbar = () => {
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2Fe6b6edb33b50467e8ccd90bf2aa55159%2F5859e3419fbd4f12932a79f1e8fbec6d?format=webp&width=800"
               alt="Tech-Hub Innovation Center"
-              className="h-10 w-auto"
+              className="h-12 md:h-14 w-auto"
               loading="eager"
               decoding="async"
             />
