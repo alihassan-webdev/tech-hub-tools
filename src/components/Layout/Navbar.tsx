@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Navbar = () => {
@@ -19,11 +19,14 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold gradient-text">TechHubSystems</span>
+          <Link to="/" className="flex items-center">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Fe6b6edb33b50467e8ccd90bf2aa55159%2F5859e3419fbd4f12932a79f1e8fbec6d?format=webp&width=800"
+              alt="Tech-Hub Innovation Center"
+              className="h-10 w-auto"
+              loading="eager"
+              decoding="async"
+            />
           </Link>
 
 
