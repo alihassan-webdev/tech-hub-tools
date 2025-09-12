@@ -16,17 +16,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Primary: logo blue */
-    --primary: 239 52% 38%;            /* ~#2E3192 */
+    /* Primary: #B22429 */
+    --primary: 357 67% 42%;            /* #B22429 */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 239 52% 45%;
+    --primary-glow: 357 67% 48%;
 
-    /* Secondary: logo red */
-    --secondary: 2 78% 56%;            /* ~#E53935 */
+    /* Secondary: #032F65 */
+    --secondary: 213 94% 18%;          /* #032F65 */
     --secondary-foreground: 0 0% 100%;
 
-    /* Accent: lighter blue */
-    --accent: 239 52% 48%;
+    /* Accent: lighter blue for UI */
+    --accent: 213 80% 40%;
     --accent-foreground: 0 0% 100%;
 
     /* Muted neutrals */
