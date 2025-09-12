@@ -28,8 +28,8 @@ export const Footer = () => {
 
   return (
     <footer className="relative mt-20">
-      {/* Gradient Border */}
-      <div className="h-px bg-gradient-primary opacity-50"></div>
+      {/* Brand Border */}
+      <div className="h-px bg-primary/50"></div>
       
       <div className="glass py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,7 +37,7 @@ export const Footer = () => {
             {/* Brand Section */}
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                   <Zap className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold gradient-text">TechHubSystems</span>
@@ -102,7 +102,7 @@ export const Footer = () => {
                 <p>Explore our tools and start creating amazing things today!</p>
                 <Link
                   to="/contact"
-                  className="inline-block mt-3 px-4 py-2 bg-gradient-primary text-primary-foreground rounded-lg hover:bg-gradient-accent transition-all duration-300 hover:scale-105"
+                  className="inline-block mt-3 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
                 >
                   Contact Us
                 </Link>
