@@ -1,125 +1,144 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Twitter, Linkedin, Mail, Zap } from 'lucide-react';
+import { ArrowRight, Facebook, Instagram, Linkedin, Whatsapp } from 'lucide-react';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const toolCategories = [
-    { name: 'Web Dev Tools', href: '/tools#web-dev' },
-    { name: 'SEO Tools', href: '/tools#seo' },
-    { name: 'Image Tools', href: '/tools#image' },
-    { name: 'File Tools', href: '/tools#file' },
-  ];
+  const [email, setEmail] = useState("");
 
   const quickLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
+    { name: 'Tools', href: '/tools' },
     { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Contact', href: '/contact' },
   ];
 
-  const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: '#', label: 'Email' },
+  const popularTools = [
+    { name: 'JSON Formatter', href: '/tools/json-formatter' },
+    { name: 'QR Code Generator', href: '/tools/qr-generator' },
+    { name: 'Image Resize', href: '/tools/image-resize' },
+    { name: 'Color Picker', href: '/tools/color-picker' },
+    { name: 'Password Generator', href: '/tools/password-generator' },
+    { name: 'Word Counter', href: '/tools/word-counter' },
+    { name: 'Unit Converter', href: '/tools/unit-converter' },
+    { name: 'Text Encrypt / Decrypt', href: '/tools/text-encrypt' },
   ];
+
+  const submitNewsletter = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    console.info('Newsletter subscribe:', email);
+    setEmail("");
+  };
 
   return (
-    <footer className="relative mt-20">
-      {/* Brand Border */}
-      <div className="h-px bg-primary/50"></div>
-      
-      <div className="glass py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Brand Section */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold gradient-text">TechHubSystems</span>
-              </div>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                The ultimate collection of 94+ tools for developers, marketers, and creators. 
-                Everything you need in one futuristic platform.
-              </p>
-              <div className="flex space-x-4">
-                {socialLinks.map(({ icon: Icon, href, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="w-10 h-10 glass rounded-lg flex items-center justify-center hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
-                    aria-label={label}
-                  >
-                    <Icon className="w-5 h-5 text-muted-foreground hover:text-secondary" />
-                  </a>
-                ))}
-              </div>
-            </div>
+    <footer className="mt-20 bg-background">
+      <div className="h-px bg-primary/50" />
 
-            {/* Tool Categories */}
+      <div className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            {/* Brand/About */}
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-foreground">Popular Categories</h3>
-              <ul className="space-y-2">
-                {toolCategories.map((category) => (
-                  <li key={category.name}>
-                    <Link
-                      to={category.href}
-                      className="text-muted-foreground hover:text-secondary transition-colors duration-300 text-sm"
-                    >
-                      {category.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="mb-6">
+                <h1 className="text-xl font-bold text-secondary">Tech-Hub</h1>
+                <p className="text-sm text-muted-foreground">Faisalabad</p>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Tech-Hub is a multi-tools platform offering developer and productivity tools, inspired by the
+                Tech-Hub Innovation Center brand colors (#B22429 and #032F65).
+              </p>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-foreground">Quick Links</h3>
-              <ul className="space-y-2">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      to={link.href}
-                      className="text-muted-foreground hover:text-secondary transition-colors duration-300 text-sm"
-                    >
-                      {link.name}
+              <h3 className="font-semibold text-lg mb-6">Quick Links</h3>
+              <ul className="space-y-3">
+                {quickLinks.map((l) => (
+                  <li key={l.name}>
+                    <Link to={l.href} className="flex items-center gap-2 group transition-all">
+                      <ArrowRight className="w-4 h-4 text-secondary transition-transform group-hover:translate-x-1" />
+                      <span>{l.name}</span>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Contact Info */}
+            {/* Popular Tools */}
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-foreground">Get in Touch</h3>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <p>Ready to boost your productivity?</p>
-                <p>Explore our tools and start creating amazing things today!</p>
-                <Link
-                  to="/contact"
-                  className="inline-block mt-3 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 hover:scale-105"
+              <h3 className="font-semibold text-lg mb-6">Popular Tools</h3>
+              <ul className="space-y-3">
+                {popularTools.map((t) => (
+                  <li key={t.name}>
+                    <Link to={t.href} className="flex items-center gap-2 group transition-all">
+                      <ArrowRight className="w-4 h-4 text-secondary transition-transform group-hover:translate-x-1" />
+                      <span>{t.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Newsletter + Socials */}
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Stay Updated with Tools</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Subscribe to get updates about new tools, improvements, and tips.
+              </p>
+              <form onSubmit={submitNewsletter} className="flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  placeholder="Enter your email"
+                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                />
+                <button
+                  type="submit"
+                  className="h-10 px-4 rounded-md bg-secondary text-secondary-foreground inline-flex items-center gap-2 hover:bg-secondary/90"
+                  aria-label="Subscribe"
                 >
-                  Contact Us
-                </Link>
+                  Subscribe <ArrowRight className="w-4 h-4" />
+                </button>
+              </form>
+
+              <div className="mt-6">
+                <h4 className="font-medium mb-3">Follow Us</h4>
+                <div className="flex gap-3">
+                  <a href="https://www.facebook.com/Techhubfsd/" target="_blank" rel="noreferrer" aria-label="Facebook"
+                     className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors">
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a href="https://www.instagram.com/techhub_innovation/" target="_blank" rel="noreferrer" aria-label="Instagram"
+                     className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-[#E4405F] hover:text-white transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                  <a href="https://www.linkedin.com/company/tech-hub-systems-pvt-limited-faisalabad/" target="_blank" rel="noreferrer" aria-label="LinkedIn"
+                     className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-[#0077B5] hover:text-white transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://wa.me/923006622815" target="_blank" rel="noreferrer" aria-label="WhatsApp"
+                     className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors">
+                    <Whatsapp className="w-5 h-5" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Bottom Section */}
-          <div className="mt-12 pt-8 border-t border-white/10">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-sm text-muted-foreground">
-                © {currentYear} TechHubSystems. All rights reserved.
-              </p>
-              <p className="text-sm text-muted-foreground mt-2 md:mt-0">
-                Developed by <span className="gradient-text font-semibold">Tech-Hub Developers</span>
-              </p>
-            </div>
+          {/* NAVTTC badge */}
+          <div className="bg-secondary rounded-lg p-6 mb-8 text-center text-secondary-foreground">
+            <h3 className="text-xl font-bold mb-1">Official NAVTTC Partner - IT Academy in Faisalabad</h3>
+            <p className="text-sm">National Vocational & Technical Training Commission - Government of Pakistan approved diploma in IT Faisalabad programs</p>
+          </div>
+
+          {/* Rights */}
+          <div className="border-t border-muted/20 pt-8 text-center">
+            <div className="text-sm text-muted-foreground">© {currentYear} Tech-Hub Faisalabad. All rights reserved.</div>
           </div>
         </div>
       </div>
