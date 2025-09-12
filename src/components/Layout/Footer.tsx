@@ -123,7 +123,7 @@ export const Footer = () => {
                   </a>
                   <a href="https://wa.me/923006622815" target="_blank" rel="noreferrer" aria-label="WhatsApp"
                      className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-[#25D366] hover:text-white transition-colors">
-                    <Whatsapp className="w-5 h-5" />
+                    <Phone className="w-5 h-5" />
                   </a>
                 </div>
               </div>
